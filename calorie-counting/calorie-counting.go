@@ -1,4 +1,4 @@
-package main
+package calorie_counting
 
 import (
 	"bufio"
@@ -7,8 +7,8 @@ import (
 	"strconv"
 )
 
-func main() {
-	inputData, err := ReadFile("input.txt")
+func Run() {
+	inputData, err := ReadFile("calorie-counting/input.txt")
 	if err != nil {
 		fmt.Printf("Error: %s\n", err)
 		os.Exit(1)
