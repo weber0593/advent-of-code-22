@@ -1,7 +1,8 @@
 package main
 
 import (
-	calories "advent-of-code-22/calorie-counting"
+	calories "advent-of-code-22/internal/calorie-counting"
+	rps "advent-of-code-22/internal/rock-paper-scissors"
 	"flag"
 	"fmt"
 	"os"
@@ -17,9 +18,9 @@ func main() {
 	}
 	switch *puzzleNum {
 	case 1:
-		calories.Run()
+		calories.Run("internal/calorie-counting/input.txt") //TODO: fix this path maybe
 	case 2:
-		//TODO:
+		rps.Run("internal/rock-paper-scissors/input.txt")
 	default:
 		fmt.Printf("Unknown puzzle number %d\n", *puzzleNum)
 	}

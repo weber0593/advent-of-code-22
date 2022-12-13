@@ -1,14 +1,14 @@
 package calorie_counting
 
 import (
-	"bufio"
+	file "advent-of-code-22/pkg/file-reader"
 	"fmt"
 	"os"
 	"strconv"
 )
 
-func Run() {
-	inputData, err := ReadFile("calorie-counting/input.txt")
+func Run(inputFilePath string) {
+	inputData, err := file.ReadFile(inputFilePath)
 	if err != nil {
 		fmt.Printf("Error: %s\n", err)
 		os.Exit(1)
@@ -84,22 +84,4 @@ func TotalCalories(items []string) int {
 		totalCalories += value
 	}
 	return totalCalories
-}
-
-func ReadFile(Path string) ([]string, error) {
-	var data []string
-	f, err := os.Open(Path)
-	if err != nil {
-		return nil, err
-	}
-	defer f.Close()
-
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		data = append(data, scanner.Text())
-	}
-	if err := scanner.Err(); err != nil {
-		return nil, err
-	}
-	return data, nil
 }
